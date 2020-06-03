@@ -1,8 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-  container: {
-    maxHeight: "500px",
+  "grid-container": {},
+  "grid-item": {
+    paddingBottom: "10px",
+  },
+  "align-right": {
+    textAlign: "right",
   },
 });
 
