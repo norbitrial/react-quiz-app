@@ -5,8 +5,8 @@ export default interface IQuizState {
   userName: string;
   status: string;
   score: number;
-  currentQuiz: IQuiz;
+  currentQuiz: IQuiz | null;
   userChoices: Array<IUserChoice>;
-  startDateTime: Date;
-  endDateTime: Date;
+  startDateTime: Date | null;
+  endDateTime: Date | null;
 }
