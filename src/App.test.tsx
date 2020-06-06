@@ -6,10 +6,12 @@ import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import IQuizState from "./Interfaces/IQuizState";
 import { createBrowserHistory } from "history";
+import IQuiz from "./Interfaces/IQuiz";
 
-const quizReducer: IQuizState = {};
+const currentQuizReducer: IQuizState = {};
+const quizzesReducer: Array<IQuiz> = [];
 const mockStore = configureMockStore();
-const store = mockStore({ quizReducer });
+const store = mockStore({ currentQuizReducer, quizzesReducer });
 const history = createBrowserHistory();
 
 test("renders without crash", () => {
