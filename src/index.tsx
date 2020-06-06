@@ -1,24 +1,35 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 import { Provider } from "react-redux";
 import { unregister } from "./serviceWorker";
 import { Router } from "react-router";
 import { createBrowserHistory } from "history";
 import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import createSagaMiddleware from "redux-saga";
 import reducers from "./Store";
 
 import "./index.css";
+import Loader from "./Components/Loader";
+
+const App = lazy(() => import("./App"));
 
 const history = createBrowserHistory();
-const store = createStore(reducers.combined, applyMiddleware(thunk));
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(reducers.combined, applyMiddleware(sagaMiddleware));
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router history={history}>
-        <App />
+        <Suspense
+          fallback={
+            <div className="app-main-loader">
+              <Loader />
+            </div>
+          }
+        >
+          <App />
+        </Suspense>
       </Router>
     </Provider>
   </React.StrictMode>,
