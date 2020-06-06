@@ -43,15 +43,15 @@ jobs:
             - run: firebase deploy --token ${FIREBASE_TOKEN} --non-interactive
 workflows:
   build-and-test:
-  jobs:
-    - install-dependencies
-    - unit-test:
-        requires:
-          - install-dependencies
-    - build-and-deploy:
-        requires:
-          - unit-test
-        filters:
-          branches:
-            only:
-              - master
+    jobs:
+      - install-dependencies
+      - unit-test:
+          requires:
+            - install-dependencies
+      - build-and-deploy:
+          requires:
+            - unit-test
+          filters:
+            branches:
+              only:
+                - master
