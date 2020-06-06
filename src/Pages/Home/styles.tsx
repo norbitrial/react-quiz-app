@@ -8,6 +8,10 @@ const useStyles = makeStyles({
   "align-right": {
     textAlign: "right",
   },
+
+  "name-field": {
+    width: "80%",
+  },
 });
 
 export default useStyles;

@@ -12,7 +12,7 @@ import {
 import IQuizColumn from "../../Interfaces/IQuizColumn";
 import useStyles from "./styles";
 import IQuiz from "../../Interfaces/IQuiz";
-import LaunchIcon from "@material-ui/icons/Launch";
+import Emoji from "../Emoji";
 import StyledTableCell from "../StyledTableCell";
 
 const columns: Array<IQuizColumn> = [
@@ -49,7 +49,7 @@ const QuizzesTable = ({ data }: IProps) => {
                     size="small"
                     onClick={() => console.log("quiz start", quiz)}
                   >
-                    <LaunchIcon fontSize="small" />
+                    <Emoji text={"📝"} />
                   </IconButton>
                 </TableCell>
                 <TableCell>{quiz.name}</TableCell>
