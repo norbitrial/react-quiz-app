@@ -17,21 +17,29 @@ interface StartCallback {
 
 interface IProps {
   quiz: IQuiz;
-  startCallback: StartCallback;
+  startCallback?: StartCallback;
   showActions: boolean;
 }
 
 const QuizCard = ({ quiz, startCallback, showActions }: IProps) => {
   const classes = useStyles();
 
+  const onClick = () => {
+    if (startCallback) {
+      startCallback();
+    }
+  };
+
   return (
     <Card>
       <CardActionArea>
-        <CardMedia
-          className={classes["card-media"]}
-          image={quiz.imageUrl}
-          title={quiz.name}
-        />
+        {quiz.imageUrl ? (
+          <CardMedia
+            className={classes["card-media"]}
+            image={quiz.imageUrl}
+            title={quiz.name}
+          />
+        ) : null}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {quiz.name}
@@ -43,7 +51,7 @@ const QuizCard = ({ quiz, startCallback, showActions }: IProps) => {
       </CardActionArea>
       {showActions ? (
         <CardActions className={classes["card-actions"]}>
-          <Button size="small" color="primary" onClick={() => startCallback()}>
+          <Button size="small" color="primary" onClick={onClick}>
             Start Quiz
           </Button>
         </CardActions>

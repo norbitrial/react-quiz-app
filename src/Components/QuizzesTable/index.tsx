@@ -22,11 +22,16 @@ const columns: Array<IQuizColumn> = [
   { id: "questionsCount", label: "Questions Count" },
 ];
 
-interface IProps {
-  data: Array<IQuiz>;
+interface SelectAction {
+  (quiz: IQuiz): void;
 }
 
-const QuizzesTable = ({ data }: IProps) => {
+interface IProps {
+  data: Array<IQuiz>;
+  onSelect: SelectAction;
+}
+
+const QuizzesTable = ({ data, onSelect }: IProps) => {
   const classes = useStyles();
 
   return (
@@ -47,7 +52,7 @@ const QuizzesTable = ({ data }: IProps) => {
                   <IconButton
                     aria-label="expand row"
                     size="small"
-                    onClick={() => console.log("quiz start", quiz)}
+                    onClick={() => onSelect(quiz)}
                   >
                     <Emoji text={"📝"} />
                   </IconButton>
