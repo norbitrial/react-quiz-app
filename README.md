@@ -1,6 +1,10 @@
+[![CircleCI](https://circleci.com/gh/norbitrial/react-quiz-app.svg?style=shield&circle-token=fb426c478caa8f7a0168eeb346e12196114e5a3f)](https://app.circleci.com/pipelines/github/norbitrial/react-quiz-app?branch=master)
+
 ## React Quiz App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is - still in progress - representing a quiz app with no real database storage, also it was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Look and feel is powered by [Material-UI](https://material-ui.com).
+
+Live demo is available at [https://quiz-app.szabonorbert.me](https://quiz-app.szabonorbert.me). 💻🚧😃
 
 ## Available Scripts
 
